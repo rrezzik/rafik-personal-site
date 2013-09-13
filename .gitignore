@@ -1,0 +1,5 @@
+virtenv/*
+.pyc
+*.db
+db_repository/*
+tmp/*
