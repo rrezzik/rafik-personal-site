@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'Dense';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/dense.otf') format("opentype");
+}
+
+#banner {
+	padding: 0;
+    height: 200px;
+    width: 100%;
+	margin: auto;
+	background-color: #FF8000;
+	/*border-bottom: 1px gray dashed;*/
+}
+
+#about_pic, #header_desc, #navigation {
+    float: left;
+}
+
+#navigation {
+    margin-right: 20px;
+
+}
+#navigation a {
+    margin: .5em;
+    color: #000000;
+    font-family: 'Dense';
+    font-size: 26px;
+    text-decoration: none;
+}
+#navigation a:link {
+    border-top: 2px #1C1C1C solid;
+    border-bottom: 2px #1C1C1C solid;
+	padding: 2px;
+}
+#navigation a:visited {
+    color: #000000;
+}
+#navigation a:hover {
+	text-decoration: none;
+    border-top: none;
+    border-bottom: none;
+
+    border-right: 2px #1C1C1C solid;
+    border-left: 2px #1C1C1C solid;
+
+}
+
+#navigation_table {
+    height: 200px;
+    display: table;
+}
+
+#header_desc_table {
+    height: 200px;
+    display: table;
+}
+
+#navigation_cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#header_desc h1 {
+    display: inline;
+    font-family: 'Dense';
+    font-size: 48px;
+}
+
+span {
+    vertical-align: middle;
+}
+
+#about_pic {
+    text-align: center;
+    line-height: 200px;
+    width: 200px;
+}
+
+#about_pic::after {
+    content: ".";
+    visibility: hidden;
+}
+
+#about_pic img {
+    vertical-align: middle;
+}
+
+#header_desc_cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+#header_desc p {
+    font-style: italic;
+    margin: 0;
+}
+#page_container {
+    width: 100%;
+}
+
+#content_container {
+	padding: .5em;
+}
+
+
+.round-corner {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.circular {
+    vertical-align: middle;
+	width: 100px;
+	height: 100px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+
+#current_content {
+	color: #333333;
+	font-size: 14pt;
+	float: left;
+	margin-left: 1em;
+	width: 70%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}

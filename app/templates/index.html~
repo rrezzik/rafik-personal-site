@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<h1>Hi, {{user.username}}!</h1>
       <div id=page_container>
           <div id="banner">
                   <div style="display: inline;" id="about_pic">
