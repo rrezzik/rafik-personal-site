@@ -1,10 +1,6 @@
 <!doctype html>
-<head>
-    <title>Rafik Rezzik</title>
-    {% block head_js %}
-    {% endblock %}
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-</head>
+<title>Rafik Rezzik - Admin</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
   <div class=metanav>
   {% if not session.logged_in %}
   {% else %}
@@ -30,10 +26,8 @@
                   <div style="display: inline; float: right;" id="navigation">
                       <div id="navigation_table">
                           <div id="navigation_cell">
-                      <a href="/about"> About </a>
-                      <a href="/projects"> Projects </a>
-                      <a href="/photography"> Photograpy </a>
-                      <a href="/blog"> Blog </a>
+                              <a href="/admin/posts"> Blog Management </a>
+                              <a href="/admin/photography"> Photo Management </a>
                   </div>
                   </div>
                   </div>

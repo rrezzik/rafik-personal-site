@@ -5,6 +5,18 @@
     src: url('fonts/dense.otf') format("opentype");
 }
 
+#container {
+    padding: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.item {
+    border: 1px solid black;
+    float: left;
+    position: relative;
+}
+
 #banner {
 	padding: 0;
     height: 200px;

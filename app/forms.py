@@ -1,4 +1,5 @@
-from flask.ext.wtf import Form, TextField, PasswordField, validators
+from flask_wtf import Form
+from wtforms import TextField, PasswordField, validators
 from models import User
 from app import db
 

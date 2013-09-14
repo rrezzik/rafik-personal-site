@@ -1,5 +1,5 @@
 virtenv/*
-.pyc
+*.pyc
 *.db
 db_repository/*
 tmp/*

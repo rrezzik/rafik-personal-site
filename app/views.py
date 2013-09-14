@@ -1,5 +1,7 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
+from flask.ext.admin import helpers
+
 from app import app, db, lm
 from forms import LoginForm
 from models import User
@@ -14,7 +16,6 @@ def before_request():
 
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
     user = g.user
     posts = [
@@ -38,9 +39,10 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = form.get_user()
-        login_user(user)
-        return redirect(url_for('index'))
+        print "Form submitted and everyting was good?"
+        if form.get_user():
+            login_user(form.get_user())
+            return redirect(url_for('index'))
     return render_template('login.html',
         title = 'Sign In',
         form = form)
@@ -50,3 +52,7 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/photography')
+def photography():
+    return render_template('photography.html')

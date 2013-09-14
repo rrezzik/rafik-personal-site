@@ -2,38 +2,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-      <div id=page_container>
-          <div id="banner">
-                  <div style="display: inline;" id="about_pic">
-                      <img class="circular" src="static/me.jpeg">
-                  </div>
-                  <div style="display: inline; text-align: center" id="header_desc">
-                      <div id="header_desc_table">
-                      <div id="header_desc_cell">
-                          <h1> RAFIK REZZIK </h1>
-                          <p> Software Developer </p>
-                      </div>
-                  </div>
-
-                  </div>
-                  <div style="display: inline; float: right;" id="navigation">
-                      <div id="navigation_table">
-                          <div id="navigation_cell">
-                      <a href="/about"> About </a>
-                      <a href="/projects"> Projects </a>
-                      <a href="/photography"> Photograpy </a>
-                      <a href="/blog"> Blog </a>
-                  </div>
-                  </div>
-                  </div>
-          </div>
-
-
-      </div>
-
-      <div id=content_container>
-          <div id=current_content>
  <ul class=entries>
 {% for post in posts %}
 <p>
@@ -41,12 +9,5 @@
 </p>
 {% endfor %}
   </ul>
-
-        </div>
-
-
-    </div>
-
-
 
 {% endblock %}
