@@ -4,3 +4,4 @@ virtenv/*
 db_repository/*
 tmp/*
 *~
+app/static/photography/*
