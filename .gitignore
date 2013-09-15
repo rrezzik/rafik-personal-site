@@ -3,3 +3,4 @@ virtenv/*
 *.db
 db_repository/*
 tmp/*
+*~

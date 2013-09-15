@@ -1,0 +1,19 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>New Blog Post</h1>
+<form action="" method="post" name="add_post">
+    {{form.hidden_tag()}}
+    <p>
+        Post Title:<br>
+        {{form.title(size=80)}}<br>
+    </p>
+    <p>
+        Post Content (Markdown):<br>
+        {{form.content(size=80)}}<br>
+    </p>
+
+    <p><input type="submit" value="Save Post"></p>
+</form>
+{% endblock %}

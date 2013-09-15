@@ -3,27 +3,14 @@
 {% block head_js %}
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script type="text/javascript" src="static/js/masonry.js"></script>
-<script type="text/javascript" src="static/js/photography.js"></script>
+<script type="text/javascript" src="static/js/pack.js"></script>
 {% endblock %}
 
 {% block content %}
-<div id="container">
-  <div class="item"></div>
-  <div class="item w2"></div>
-  <div class="item"></div>
-  <div class="item w2"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item w2 h2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item w2"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
+<div id='horizontal-grid-packing'>
+    {% for pic in pics %}
+    <img src="{{ pic.filename }}" data-width='{{ pic.width }}' data-height='{{ pic.height }}'></img>
+    {% endfor %}
 </div>
+
 {% endblock %}

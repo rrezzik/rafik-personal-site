@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, PasswordField, validators
+from wtforms import TextAreaField, TextField, PasswordField, validators
 from models import User
 from app import db
 
@@ -20,3 +20,7 @@ class LoginForm(Form):
 
     def get_user(self):
         return db.session.query(User).filter_by(username=self.login.data).first()
+
+class AddPostForm(Form):
+    title = TextField('Post Title', [validators.Required()])
+    content = TextAreaField('Post Content', [validators.Required()])
