@@ -30,7 +30,7 @@ def add_post():
                 user_id=current_user.id)
         db.session.add(post)
         db.session.commit()
-        redirect(url_for('posts'))
+        return redirect(url_for('posts'))
     return render_template('add_post.html', form=form)
 
 @app.route('/admin/posts/delete')
