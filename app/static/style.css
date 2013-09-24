@@ -66,21 +66,22 @@ img {
 	/*border-bottom: 1px gray dashed;*/
 }
 
+#banner_content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
 #about_pic, #header_desc, #navigation {
     float: left;
 }
 
-#navigation {
-    margin-right: 20px;
-
-}
 
 #header_desc {
     text-shadow: 0px 1px 2px #2E2E2E;
 }
 
 #navigation a {
-    margin: .5em;
+    margin-left: 1.5em;
     color: #000000;
     font-family: 'Dense';
     font-size: 30px;
@@ -135,9 +136,7 @@ span {
 }
 
 #about_pic {
-    text-align: center;
     line-height: 200px;
-    width: 200px;
 }
 
 #about_pic::after {
