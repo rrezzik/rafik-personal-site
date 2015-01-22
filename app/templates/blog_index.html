@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "new_base.html" %}
 
 {% block content %}
 {% for post in posts %}
@@ -6,11 +6,12 @@
 <div class="post">
     <h1 class="post_title"> {{ post.title }} </h1>
     <p class="post_author"> {{ post.author.fullname }} </p>
-
-    <div class="post_content>
-        {{ post.content }}
+    <p> hello </p>
+    <div class="post_content">
+        {{ post.body|safe }}
     </div>
 </div>
+
 
 {% endfor %}
 
