@@ -1,0 +1,42 @@
+$body-bg-color: #fff;
+$body-font-color: #777;
+$body-font-stack: 'Lato', sans-serif;
+
+body, html {
+    height: 100%;
+	background-color: $body-bg-color;
+    color: $body-font-color;
+    font-family: $body-font-stack;
+    padding: 0;
+    margin: 0;
+}
+
+
+hr { 
+    border: 0; 
+    padding-left: 15%;
+    padding-right: 15%;
+    height: 1px;
+    background-color: rgba(153, 153, 153, .95);
+    width: 100%;
+}
+
+#main-container {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+*, *:after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+@import 'header';
+@import 'content';
+@import 'footer';
+@import 'running';
+

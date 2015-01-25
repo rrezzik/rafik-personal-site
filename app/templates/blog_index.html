@@ -4,12 +4,14 @@
 {% for post in posts %}
 
 <div class="post">
+    <div class="post-heading">
     <h1 class="post_title"> {{ post.title }} </h1>
-    <p class="post_author"> {{ post.author.fullname }} </p>
-    <p> hello </p>
-    <div class="post_content">
-        {{ post.body|safe }}
+    <p class="post-date"> {{ post.timestamp.strftime('%B %d, %Y') }} </p>
     </div>
+    <div class="post-tagline">
+        {{ post.tagline }}
+    </div>
+    <a href="{{ post.permalink }}"> Read More </a>
 </div>
 
 

@@ -3,7 +3,7 @@ from flask.ext.login import login_user, logout_user, current_user, login_require
 
 from app import app, db, lm
 from forms import LoginForm
-from models import User
+from models import User, Post
 import glob
 from random import randrange
 
@@ -19,17 +19,8 @@ def before_request():
 @app.route('/index')
 def index():
     user = g.user
-    posts = [
-        {
-            'author': { 'nickname': 'John' },
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': { 'nickname': 'Susan' },
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html',
+    posts = Post.query.all()
+    return render_template('blog_index.html',
         title = 'Home',
         user = user,
         posts = posts)
@@ -75,6 +66,6 @@ def photography():
 def about():
     return render_template('about.html')
 
-@app.route('/projects')
-def projects():
-    return render_template('projects.html')
+@app.route('/running')
+def running():
+    return render_template('running.html')
