@@ -27,6 +27,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.Text)
     body = db.Column(db.Text)
+    tagline = db.Column(db.Text)
     body_markdown = db.Column(db.Text)
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
