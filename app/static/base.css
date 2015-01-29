@@ -1,0 +1,219 @@
+body, html {
+  height: 100%;
+  background-color: #fff;
+  color: #777;
+  font-family: "Lato", sans-serif;
+  padding: 0;
+  margin: 0; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Merriweather", serif; }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  /*border: 0; 
+  padding-left: 15%;
+  padding-right: 15%;
+  height: 1px;
+  background-color: rgba(153, 153, 153, .95);
+  width: 100%;*/ }
+
+#main-container {
+  display: table;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px; }
+
+*, *:after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/*$big-name-color: 
+$nav-links-color:
+
+$big-name-
+
+*/
+#header {
+  display: table-row; }
+
+#name-container {
+  display: inline-block; }
+
+#banner-links {
+  display: inline-block;
+  float: right;
+  bottom: 0; }
+  #banner-links a {
+    text-transform: uppercase; }
+
+.name-big-reverse {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+.name-big {
+  text-shaddow: 1px 0px 1px rgba(150, 150, 150, 0.54) !important;
+  display: inline-block;
+  font-family: 'Merriweather', serif;
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -1px; }
+
+#name_container {
+  float: left;
+  bottom: 0; }
+
+#header a {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  /*color: #505050;*/
+  color: rgba(153, 153, 153, 0.95);
+  margin: .5em;
+  text-decoration: none; }
+
+#header a:hover {
+  color: #000; }
+
+#header a:hover {
+  color: #000; }
+
+#header-content {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 50px;
+  padding-bottom: 40px; }
+  #header-content hr {
+    margin-top: 40px; }
+
+.clear {
+  clear: both; }
+
+#big-name-div {
+  display: inline-block;
+  color: rgba(153, 153, 153, 0.95);
+  padding: 0;
+  border: 1px solid rgba(153, 153, 153, 0.95); }
+
+/* Variables */
+/* Start CSS */
+#content_container {
+  display: table-row;
+  height: 100%; }
+
+#content {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 20px;
+  font-family: "Lato", sans-serif;
+  color: #555; }
+  #content p {
+    font-size: 16px; }
+  #content a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 700; }
+  #content a:hover {
+    border-bottom: 3px solid #FFF06A; }
+  #content h1, #content h2, #content h3, #content h4 {
+    color: #000; }
+  #content h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 22px; }
+  #content h2 {
+    font-size: 20px; }
+  #content h3 {
+    font-size: 18px; }
+  #content h4 {
+    font-size: 16px; }
+
+/* Quote styling */
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0 auto;
+  padding: 1em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838;
+  display: table;
+  width: auto; }
+
+blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -15px;
+  color: #7a7a7a; }
+
+blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px; }
+
+blockquote cite:before {
+  content: "\2014 \2009"; }
+
+#footer-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 15%;
+  margin-right: 15%; }
+  #footer-content i {
+    padding-right: .5em; }
+  #footer-content a {
+    color: #000; }
+
+#footer {
+  display: table-row;
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 20px; }
+
+#social-icons {
+  float: right; }
+
+#run-content iframe {
+  float: right; }
+
+.post .post-title {
+  padding-bottom: 0;
+  margin-bottom: 0; }
+.post .post-date {
+  padding-top: 0;
+  margin-top: 0; }
+.post .post-banner-pic {
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 10%; }
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Merriweather"), url(./fonts/Merriweather/Merriweather-Regular.ttf) format("truetype"); }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato Regular"), local("Lato-Regular"), url(./fonts/Lato/Lato-Regular.ttf) format("truetype"); }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Lato Bold"), local("Lato-Bold"), url(./fonts/Lato/Lato-Bold.ttf) format("truetype"); }
+
+/*# sourceMappingURL=base.css.map */

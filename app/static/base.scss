@@ -2,6 +2,8 @@ $body-bg-color: #fff;
 $body-font-color: #777;
 $body-font-stack: 'Lato', sans-serif;
 
+$header-font-stack: 'Merriweather', serif;
+
 body, html {
     height: 100%;
 	background-color: $body-bg-color;
@@ -11,14 +13,21 @@ body, html {
     margin: 0;
 }
 
+h1, h2, h3, h4, h5 {
+    font-family: $header-font-stack;
+}
 
 hr { 
-    border: 0; 
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    /*border: 0; 
     padding-left: 15%;
     padding-right: 15%;
     height: 1px;
     background-color: rgba(153, 153, 153, .95);
-    width: 100%;
+    width: 100%;*/
 }
 
 #main-container {
@@ -39,4 +48,5 @@ hr {
 @import 'content';
 @import 'footer';
 @import 'running';
-
+@import 'blog';
+@import 'fonts';

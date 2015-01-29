@@ -45,6 +45,10 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+@app.route('/code')
+def code():
+    return render_template('code.html')
+
 @app.route('/photography')
 def photography():
     '''

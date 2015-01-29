@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 <title> Rafik Rezzik </title>
-<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='base.css') }}">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 {% block head_js %}
@@ -40,15 +38,16 @@
 	</div>
 	
     <div id="banner-links">
+        {% block topbar %}
 		<a href="/blog"> blog </a> 
 		<a href="/about"> about </a>
 		<a href="/code"> code </a>
 		<a href="/running"> running </a>
+        {% endblock %}
 	</div>
 
-    <!--    <hr/> -->
+    <hr/>
 </div>
-
 
 </div>
 
@@ -64,9 +63,11 @@
      <div id="footer-content">
          <hr/>
      <div id="social-icons">
-         <a href="https://twitter.com/rafikrezzik"><i class="fa fa-twitter"></i></a>
-         <a href="https://github.com/rrezzik"><i class="fa fa-github-alt"></i></a>
-        <i class="fa fa-at"></i>
+         <a href="https://twitter.com/rafikrezzik"><i class="fa fa-twitter-square fa-lg"></i></a>
+         <a href="https://github.com/rrezzik"><i class="fa fa-github-square fa-lg"></i></a>
+         <a href="https://bitbucket.org/rrezzik"><i class="fa fa-bitbucket-square fa-lg"></i></a>
+         <a href="mailto:rafik.rezzik@gmail.com"><i class="fa fa-at fa-lg"></i></a>
+
      </div>
      </div>
  </div>

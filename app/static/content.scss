@@ -1,6 +1,6 @@
 /* Variables */
 
-$content-font-color: #777;
+$content-font-color: #555;
 
 $content-heading-color: #000;
 
@@ -25,10 +25,11 @@ $font-weight-h: 700;
 }
 
 #content {
-    padding-left: 15%;
-    padding-right: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
     padding-top: 20px;
     font-family: $font-stack;
+    color: $content-font-color;
 
     p {
         font-size: $font-size-p;
@@ -49,6 +50,7 @@ $font-weight-h: 700;
     }
 
     h1 {
+        font-family: 'Merriweather', serif;
         font-size: $font-size-h1;
     }
 
@@ -63,4 +65,41 @@ $font-weight-h: 700;
     h4 {
         font-size: $font-size-h4;
     }
+}
+
+/* Quote styling */
+
+blockquote {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    margin: 0 auto;
+    padding: 1em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+
+    display: table;
+    width: auto;
+}
+
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -15px;
+    color: #7a7a7a;
+}
+
+blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+ 
+blockquote cite:before {
+    content: "\2014 \2009";
 }
