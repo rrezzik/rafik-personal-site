@@ -1,5 +1,19 @@
 #run-content {
     iframe {
-        float: right;
+        width: 100%;
     }
 }
+@media all and (max-device-width:800px),
+all and (max-width:480px) {
+
+    #run-content {
+        iframe {
+            display: none;
+            font-size: 30px;
+            float: none;
+            width: 100%;
+        }
+        
+    }
+}
+

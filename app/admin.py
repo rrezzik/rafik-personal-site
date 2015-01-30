@@ -1,10 +1,14 @@
-from app import app, db
+from app import app, db, lm
 from flask import render_template, flash, redirect, session, url_for, request, g
-from flask.ext.login import current_user, login_required
+from flask.ext.login import current_user, login_required, LoginManager
 from forms import AddPostForm
 from models import Post
 import datetime
 import markdown2
+
+@lm.unauthorized_handler
+def unauthorized_callback():
+    return redirect('/login')
 
 @app.route('/admin')
 @login_required
@@ -15,7 +19,8 @@ def admin():
 @app.route('/admin/posts')
 @login_required
 def posts():
-    return render_template('posts.html')
+    posts = Post.query.all();
+    return render_template('posts.html', posts=posts)
 
 @app.route('/admin/posts/add', methods = ['GET', 'POST'])
 @login_required

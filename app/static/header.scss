@@ -6,6 +6,7 @@ $nav-links-color:
 $big-name-
 
 */
+
 #header {
     display: table-row;
 }
@@ -65,8 +66,8 @@ $big-name-
 }
 
 #header-content {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
     padding-top: 50px;
     padding-bottom: 40px;
 
@@ -87,5 +88,47 @@ $big-name-
 	padding: 0;
     border: 1px solid rgba(153, 153, 153, 0.95);
 
+
+}
+
+@media all and (max-device-width:800px),
+all and (max-width:480px)
+{
+    
+	#header-content
+	{
+        display: block;
+		margin: 0;
+        padding: 1em;
+
+        a {
+            font-size: 38px;
+        }
+	}
+
+	#big-name-div {
+        text-align: center;
+        margin: 0 auto;
+        color: rgba(153, 153, 153, 0.95);
+        padding: 0;
+        border: 1px solid rgba(153, 153, 153, 0.95);
+    }
+
+    #name-container {
+        display: block;
+        text-align: center;
+    }
+
+    #banner-links {
+        display: block;
+        float: none;
+        margin: 20px auto;
+        text-align: center;
+        
+
+        a {
+            text-transform: uppercase;
+        }
+    }
 
 }
