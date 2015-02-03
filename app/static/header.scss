@@ -66,8 +66,8 @@ $big-name-
 }
 
 #header-content {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
     padding-top: 50px;
     padding-bottom: 40px;
 
@@ -91,19 +91,19 @@ $big-name-
 
 }
 
-@media all and (max-device-width:800px),
-all and (max-width:480px)
+@media screen and (max-width:768px)
 {
     
 	#header-content
 	{
+        background-color: #454051;
+        /*background-color: #52414C;*/
         display: block;
 		margin: 0;
         padding: 1em;
+        border-bottom: 1px #333 solid;
+        box-shadow: 0 10px 0 #333;
 
-        a {
-            font-size: 38px;
-        }
 	}
 
 	#big-name-div {

@@ -4,7 +4,9 @@ $content-font-color: #555;
 
 $content-heading-color: #000;
 
-$content-anchor-color: #000;
+/*$content-anchor-color: #000;*/
+$content-anchor-color: #DB504A;
+/*$content-anchor-color: #EE8434;*/
 $content-anchor-hover-color: #FFF06A;
 
 $font-stack: 'Lato', sans-serif;
@@ -25,15 +27,13 @@ $font-weight-h: 700;
 }
 
 #content {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
     padding-top: 20px;
+    background-color: #F8F8F8;
     font-family: $font-stack;
     color: $content-font-color;
 
-    p {
-        font-size: $font-size-p;
-    }
 
     a {
         color: $content-anchor-color;
@@ -46,36 +46,19 @@ $font-weight-h: 700;
     }
 
     h1, h2, h3, h4 {
+        font-family: 'Merriweather', serif;
         color: $content-heading-color;
     }
 
-    h1 {
-        font-family: 'Merriweather', serif;
-        font-size: $font-size-h1;
-    }
-
-    h2 {
-        font-size: $font-size-h2;
-    }
-
-    h3 {
-        font-size: $font-size-h3;
-    }
-
-    h4 {
-        font-size: $font-size-h4;
-    }
 }
 
 /* Quote styling */
 
 blockquote {
     font-family: Georgia, serif;
-    font-size: 18px;
     font-style: italic;
     margin: 0 auto;
     padding: 1em 40px;
-    line-height: 1.45;
     position: relative;
     color: #383838;
 
@@ -86,7 +69,6 @@ blockquote {
 blockquote:before {
     display: block;
     content: "\201C";
-    font-size: 80px;
     position: absolute;
     left: -20px;
     top: -15px;
@@ -95,7 +77,6 @@ blockquote:before {
 
 blockquote cite {
     color: #999999;
-    font-size: 14px;
     display: block;
     margin-top: 5px;
 }
@@ -104,12 +85,11 @@ blockquote cite:before {
     content: "\2014 \2009";
 }
 
-@media all and (max-device-width:800px),
-all and (max-width:480px)
+@media screen and (max-width:768px)
 {
     #content {
         p {
-            font-size: 40px;
+           /* font-size: 40px; */
         }
         float: none;
         width: 100%;
@@ -118,22 +98,6 @@ all and (max-width:480px)
         font-family: $font-stack;
         color: $content-font-color;
        
-        h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 50px;
-        }
-
-        h2 {
-            font-size: 48px;
-        }
-
-        h3 {
-            font-size: 46px;
-        }
-
-        h4 {
-            font-size: 44px;
-        }
 
     }
 

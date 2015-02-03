@@ -1,15 +1,16 @@
-$footer-a-social-color: #000;
+$footer-a-social-color: #fff;
 
 
 #footer-content {
-    padding-top: 20px;
+    /*padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;*/
 
     i {
         padding-right: .5em;
+        padding-left: .5em;
     }
 
     a {
@@ -20,11 +21,26 @@ $footer-a-social-color: #000;
 #footer {
     display: table-row;
     width: 100%;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    
 }
 
 #social-icons {
-    float: right;
+}
+
+@media screen and (max-width:768px)
+{
+    #footer {
+        margin-top: 20px;
+        /*background-color: #D8D8D8;*/
+        background-color: #1D9D74;
+    }
+
+    #social-icons {
+        color: #000;
+        margin: 30px auto;
+    }
+	#footer-content
+	{
+        display: table;
+		margin: 0 auto;
+	}
 }

@@ -10,3 +10,8 @@ from models import User, Post
 def blog_index():
     posts = Post.query.all()
     return render_template('blog_index.html', posts=posts)
+
+@app.route('/blog/<postid>')
+def blog_post(postid):
+    post = Post.query.filter_by(id=postid).first()
+    return render_template('post.html', post=post)
