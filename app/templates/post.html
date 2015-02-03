@@ -3,18 +3,20 @@
 {% block blog_content_block %}
 
 <div class="post">
+    
     <div class="post-heading">
-    <h1 class="post-title"> {{ post.title }} </h1>
-    <p class="post-date"> {{ post.timestamp.strftime('%B %d, %Y') }} </p>
-        <div class="post-banner-pic">
+        <h1 class="post-title"> {{ post.title }} </h1>
+        <p class="post-date"> {{ post.timestamp.strftime('%B %d, %Y') }} </p>
+            <div class="post-banner-pic">
             <!-- style="background-image: url({{url_for('static', filename='blog1_banner.jpg') }});" > -->
-            <img width="100%" style="max-width: 100%;" src="{{ url_for('static', filename='blog_1_banner.jpg') }}">
-        </div>
-
+                <img width="100%" style="max-width: 100%;" src="{{ url_for('static', filename='blog_1_banner.jpg') }}">
+            </div>
     </div>
+
     <div class="post-tagline">
         {{ post.body|safe }}
     </div>
+
 </div>
 
 

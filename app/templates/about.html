@@ -8,13 +8,19 @@
         alt="Picture of me at Montreal's Old Port" 
         title="Picture of me at Montreal's Old Port" 
     />-->
-
-    <h1> Hello, I'm Rafik Rezzik</h1>
+    <h1> Hello / 안녕하세요,</h1>
+    <h1> I'm Rafik Rezzik</h1>
+    <div class="about-image">
+        <img src="static/me_mtl.JPG" 
+            alt="Picture of me at Montreal's Old Port" 
+            title="Picture of me at Montreal's Old Port" />
+        <div class="image-caption"> Fooling around at the Old Port of Montreal </div>
+    </div>
 
 		<p>
 			I write code, run, play soccer, and dabble in photography. I live in beautiful <a href="http://ottawa.ca"> Ottawa, Canada</a>. This site serves as both a sort of portfolio of my work and a place to store tidbits I find interesting. 
 		</p>
 
         <p> You can follow me on <a href="http://twitter.com/rafikrezzik">Twitter</a> or <a href="https://github.com/rrezzik">Github</a>.</p>
-        <p> And here's <a href="">my resume</a>. </p>
+        <p> And here's <a href="{{ url_for('static', filename='files/rafik-resume.pdf') }}">my resume</a>. </p>
 {% endblock %}

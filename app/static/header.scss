@@ -8,6 +8,7 @@ $big-name-
 */
 
 #header {
+    background-color: #454051;
     display: table-row;
 }
 
@@ -53,7 +54,8 @@ $big-name-
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 	/*color: #505050;*/
-    color: rgba(153, 153, 153, 0.95);
+    color: #fff;
+    /*color: rgba(153, 153, 153, 0.95);*/
 	margin: .5em;
 	text-decoration: none;
 }
@@ -66,6 +68,7 @@ $big-name-
 }
 
 #header-content {
+
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 50px;
@@ -86,7 +89,8 @@ $big-name-
     display: inline-block;
     color: rgba(153, 153, 153, 0.95);
 	padding: 0;
-    border: 1px solid rgba(153, 153, 153, 0.95);
+    /*border: 1px solid rgba(153, 153, 153, 0.95);*/
+    border: 1px solid #fff;
 
 
 }
@@ -111,7 +115,6 @@ $big-name-
         margin: 0 auto;
         color: rgba(153, 153, 153, 0.95);
         padding: 0;
-        border: 1px solid rgba(153, 153, 153, 0.95);
     }
 
     #name-container {

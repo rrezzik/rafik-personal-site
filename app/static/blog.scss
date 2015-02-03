@@ -4,9 +4,9 @@
         margin-bottom: 0;
     }
 
-    .post-date {
+    /*.post-date {
         font-size: 12px !important;
-    }
+    }*/
 
     .post-banner-pic {
         background-repeat: no-repeat;
@@ -48,16 +48,13 @@
 }
 
 #blog-roll {
-    width: 70%;
-    float: left;
-/*    max-width: 75%; */
 }
 
 #blog-summary {
-    width: 25%;
-    h1, h2 {
+    /*width: 25%;*/
+    h1, h2, h3, h4{
+        font-family: 'Lato', sans serif;
         padding-top: 0;
-        margin-top: 0;
     }
 
     float: right;

@@ -30,11 +30,15 @@ $font-weight-h: 700;
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 20px;
+    padding-bottom: 20px;
     background-color: #F8F8F8;
     font-family: $font-stack;
     color: $content-font-color;
 
 
+    img {
+        max-width: 100%;
+    }
     a {
         color: $content-anchor-color;
         text-decoration: none;
@@ -48,6 +52,11 @@ $font-weight-h: 700;
     h1, h2, h3, h4 {
         font-family: 'Merriweather', serif;
         color: $content-heading-color;
+    }
+
+    .image-caption {
+        font-size: .5em;
+        font-style: italic;
     }
 
 }

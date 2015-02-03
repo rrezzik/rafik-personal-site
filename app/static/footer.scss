@@ -2,11 +2,8 @@ $footer-a-social-color: #fff;
 
 
 #footer-content {
-    /*padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;*/
+    display: table;
+	margin: 0 auto;
 
     i {
         padding-right: .5em;
@@ -21,9 +18,14 @@ $footer-a-social-color: #fff;
 #footer {
     display: table-row;
     width: 100%;
+    background-color: #1D9D74;
+
 }
 
 #social-icons {
+    color: #000;
+    margin: 40px auto;
+
 }
 
 @media screen and (max-width:768px)
@@ -36,7 +38,7 @@ $footer-a-social-color: #fff;
 
     #social-icons {
         color: #000;
-        margin: 30px auto;
+        margin: 40px auto;
     }
 	#footer-content
 	{
