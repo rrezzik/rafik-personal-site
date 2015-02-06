@@ -5,4 +5,6 @@ flask-sqlalchemy==0.16
 sqlalchemy-migrate
 flask-wtf
 tornado
-markdown2
+markdown
+jinja2_highlight
+pygments

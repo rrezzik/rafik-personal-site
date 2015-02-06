@@ -4,7 +4,7 @@ from flask.ext.login import current_user, login_required, LoginManager
 from forms import AddPostForm
 from models import Post
 import datetime
-import markdown2
+import markdown
 
 @lm.unauthorized_handler
 def unauthorized_callback():
@@ -30,7 +30,8 @@ def add_post():
         current_time = datetime.datetime.now()
         post = Post(title=form.title.data,
                 body_markdown=form.content.data,
-                body=markdown2.markdown(form.content.data),
+                body=markdown.markdown(form.content.data, extensions = ['codehilite']),
+                tagline=" ".join(form.content.data.split()[:25]) + "..",
                 timestamp=current_time,
                 user_id=current_user.id)
         db.session.add(post)
