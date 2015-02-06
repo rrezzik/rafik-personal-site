@@ -66,23 +66,26 @@ $font-weight-h: 700;
 blockquote {
     font-family: Georgia, serif;
     font-style: italic;
-    margin: 0 auto;
-    padding: 1em 40px;
+    margin: 10px auto;
+    padding: .5em;
     position: relative;
     color: #383838;
-
+    /*border-left: 2px solid #D0D0D0;*/
     display: table;
     width: auto;
 }
 
-blockquote:before {
+/*blockquote:before {
+    font-size: 1.25em !important;
     display: block;
+    content: "\201C";
     content: "\201C";
     position: absolute;
     left: -20px;
-    top: -15px;
+    to$p: -15px;
+    border-left: 1px solid #000;
     color: #7a7a7a;
-}
+}*/
 
 blockquote cite {
     color: #999999;
