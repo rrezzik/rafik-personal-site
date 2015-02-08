@@ -19,11 +19,7 @@ def before_request():
 @app.route('/index')
 def index():
     user = g.user
-    posts = Post.query.all()
-    return render_template('blog_index.html',
-        title = 'Home',
-        user = user,
-        posts = posts)
+    return redirect(url_for('blog'))
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -48,23 +44,6 @@ def logout():
 @app.route('/code')
 def code():
     return render_template('code.html')
-
-@app.route('/photography')
-def photography():
-    '''
-    Get all the pictures from the directoty and send the list
-    to the template for beautiful masonry gallery
-    '''
-
-    picture_files = glob.glob('app/static/photography/photos/*')
-    pics = []
-    heights = [292, 140]
-    widths = [140, 292, 444]
-    for pic_file in picture_files:
-        pics.append({'filename': pic_file.replace('app/', ''),
-            'height': heights[randrange(2)],
-            'width': widths[randrange(3)]})
-    return render_template('photography.html', pics=pics)
 
 @app.route('/about')
 def about():
