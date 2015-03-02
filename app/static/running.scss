@@ -1,3 +1,7 @@
+#run-content img {
+	max-width: 80%;
+}
+
 #run-content {
     iframe {
         width: 100%;
@@ -8,10 +12,12 @@ all and (max-width:480px) {
 
     #run-content {
         iframe {
-            display: none;
             float: none;
             width: 100%;
         }
+	img {
+	    max-width: 100%;
+	}
         
     }
 }
