@@ -24,7 +24,11 @@
     }
 
     .post-list-item {
-        display: inline;
+        display: inline-block;
+    }
+
+    .posts-list {
+        display: inline-block;
     }
 
     .post-actions {

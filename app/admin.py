@@ -39,6 +39,24 @@ def add_post():
         return redirect(url_for('posts'))
     return render_template('add_post.html', form=form)
 
+@app.route('/admin/posts/edit/<postid>', methods = ['GET', 'POST'])
+@login_required
+def edit_post(postid):
+    post = Post.query.filter_by(id=postid).first()
+    form = AddPostForm(obj=post)
+    if form.validate_on_submit():
+        current_time = datetime.datetime.now()
+        post.title=form.title.data
+        post.body_markdown=form.body_markdown.data
+        post.body=markdown.markdown(form.body_markdown.data, extensions = ['codehilite'])
+        post.tagline=" ".join(form.body_markdown.data.split()[:25]) + ".."
+        post.timestamp=current_time
+        post.user_id=current_user.id
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('posts'))
+    return render_template('add_post.html', form=form)
+
 @app.route('/admin/posts/delete')
 @login_required
 def delete_post():

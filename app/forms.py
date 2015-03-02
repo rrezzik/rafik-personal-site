@@ -24,4 +24,4 @@ class LoginForm(Form):
 
 class AddPostForm(Form):
     title = TextField('Post Title', [validators.Required()])
-    content = TextAreaField('Post Content', [validators.Required()])
+    body_markdown = TextAreaField('Post Content', [validators.Required()])
