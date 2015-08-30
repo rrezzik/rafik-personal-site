@@ -7,6 +7,7 @@
     <div class="post-heading">
         <h1 class="post-title"> {{ post.title }} </h1>
         <p class="post-date"> {{ post.timestamp.strftime('%B %d, %Y') }} </p>
+        <p class="post-tags">{{ post.tags[0].tag }} </p>
     </div>
 
     <div class="post-tagline">

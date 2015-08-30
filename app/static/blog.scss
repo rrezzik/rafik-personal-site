@@ -15,8 +15,16 @@
         padding-top: 0;
         margin-top: 0;
         padding-bottom: 2em;
+        float:left;
     }
 
+    .post-tags {
+        font-size: .75em !important;
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 2em;
+        float: right;
+    }
     .post-banner-pic {
         background-repeat: no-repeat;
         max-width: 100%;

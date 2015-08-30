@@ -2,7 +2,7 @@ from app import app, db, lm
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import current_user, login_required, LoginManager
 from forms import AddPostForm
-from models import Post
+from models import Post, Tag
 import datetime
 import markdown
 
@@ -29,11 +29,12 @@ def add_post():
     if form.validate_on_submit():
         current_time = datetime.datetime.now()
         post = Post(title=form.title.data,
-                body_markdown=form.content.data,
-                body=markdown.markdown(form.content.data, extensions = ['codehilite']),
-                tagline=" ".join(form.content.data.split()[:25]) + "..",
+                body_markdown=form.body_markdown.data,
+                body=markdown.markdown(form.body_markdown.data, extensions = ['codehilite']),
+                tagline=" ".join(form.body_markdown.data.split()[:25]) + "..",
                 timestamp=current_time,
                 user_id=current_user.id)
+        post.tags.append(Tag(tag='Sports'))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('posts'))
@@ -55,6 +56,7 @@ def edit_post(postid):
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('posts'))
+
     return render_template('add_post.html', form=form)
 
 @app.route('/admin/posts/delete')

@@ -1,5 +1,11 @@
 from app import db
 
+tags_relationship_table=db.Table('relationship_table',
+
+                             db.Column('post_id', db.Integer,db.ForeignKey('post.id'), nullable=False),
+                             db.Column('tags_id',db.Integer,db.ForeignKey('tag.id'),nullable=False),
+                             db.PrimaryKeyConstraint('post_id', 'tags_id') )
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), index = True, unique = True)
@@ -31,7 +37,13 @@ class Post(db.Model):
     body_markdown = db.Column(db.Text)
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    tags=db.relationship('Tag', secondary=tags_relationship_table, backref='posts' )
+
 
     def __repr__(self):
         return '<Post %r>' % (self.title)
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    tag = db.Column(db.Text)
 
