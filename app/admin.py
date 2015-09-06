@@ -59,8 +59,11 @@ def edit_post(postid):
 
     return render_template('add_post.html', form=form)
 
-@app.route('/admin/posts/delete')
+@app.route('/admin/posts/delete/<postid>', methods = ['GET', 'POST'])
 @login_required
-def delete_post():
-    return render_template('delete_post.html')
+def delete_post(postid):
+    post = Post.query.filter_by(id=postid).first()
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for('posts'))
 

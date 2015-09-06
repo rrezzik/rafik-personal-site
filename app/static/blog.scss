@@ -19,6 +19,12 @@
     }
 
     .post-tags {
+        p {
+            padding: 2px;
+            border-radius: 500px;
+            border: 1px solid #CCCCFF;
+            color: #CCCCFF;
+        }
         font-size: .75em !important;
         padding-top: 0;
         margin-top: 0;

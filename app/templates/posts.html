@@ -7,7 +7,7 @@
 <ul>
 {% for post in posts %}
 <div class="posts-list">
-<li class="post-list-item"> <h2><a href="">{{ post.title }}</a></h2> <div class="post-actions"> <a href="posts/edit/{{post.id}}"> Edit </a> <a href=""> Delete </a> </li>
+<li class="post-list-item"> <h2><a href="">{{ post.title }}</a></h2> <div class="post-actions"> <a href="posts/edit/{{post.id}}"> Edit </a> <a href="posts/delete/{{post.id}}"> Delete </a> </li>
 </div>
 {% endfor %}
 </ul>
