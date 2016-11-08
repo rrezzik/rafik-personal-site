@@ -23,5 +23,5 @@ class LoginForm(Form):
         return db.session.query(User).filter_by(username=self.login.data).first()
 
 class AddPostForm(Form):
-    title = TextField('Post Title', [validators.Required()])
-    body_markdown = TextAreaField('Post Content', [validators.Required()])
+    blog_post_title = TextField('Post Title', [validators.Required()])
+    blog_post_markdown = TextAreaField('Post Content', [validators.Required()])

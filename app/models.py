@@ -1,4 +1,5 @@
 from app import db
+import json
 
 tags_relationship_table=db.Table('relationship_table',
 
@@ -26,6 +27,15 @@ class User(db.Model):
     def get_id(self):
         return unicode(self.id)
 
+    def serialize(self):
+        return {
+            'id' : self.id,
+            'username' : self.username,
+            'password' : self.password,
+            'fullname' : self.fullname,
+            'email' : self.email
+        }
+
     def __repr__(self):
         return '<User %r>' % (self.username)
 
@@ -39,6 +49,14 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     tags=db.relationship('Tag', secondary=tags_relationship_table, backref='posts' )
 
+    def serialize(self):
+        return {
+            'id' : self.id,
+            'title' : self.title,
+            'body' : self.body,
+            'tagline' : self.tagline,
+            'body_markdown' : self.body_markdown
+        }
 
     def __repr__(self):
         return '<Post %r>' % (self.title)

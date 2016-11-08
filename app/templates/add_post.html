@@ -1,19 +1,39 @@
 <!-- extend from base layout -->
 {% extends "base.html" %}
 
-{% block content %}
-<h1>New Blog Post</h1>
-<form action="" method="post" name="add_post">
-    {{form.hidden_tag()}}
-    <p>
-        Post Title:<br>
-        {{form.title(size=80)}}<br>
-    </p>
-    <p>
-        Post Content (Markdown):<br>
-        {{form.body_markdown(size=80)}}<br>
-    </p>
+{% block head_css %}
+    {{ super() }}
+    <link rel=stylesheet type=text/css href= "{{ url_for('static', filename='css/simpleMDE/simplemde.min.css') }}">
+{% endblock %}
 
-    <p><input type="submit" value="Save Post"></p>
+{% block head_js %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/simpleMDE/simplemde.min.js') }}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<script>
+window.onload = function() {
+    var post_data = {{ data | safe }};
+    var simplemde = new SimpleMDE( {element: document.getElementById("blog_post_markdown") });
+    simplemde.value(post_data.body_markdown);
+
+    $('#blog_post_title').val(post_data.title);
+};
+</script>
+
+
+<form action="" method="post" id="add-post-form" name="add_post">
+    {{form.hidden_tag()}}
+    
+    <h3>Post Title </h3>
+    <input id="blog_post_title" name="blog_post_title" type="text"> </input>
+
+    <h3>Post Content (Markdown) </h3>
+    <textarea style="height=200px; width=300px;" id="blog_post_markdown" name="blog_post_markdown"></textarea>
+
+    <input type="submit" id="save-post" value="Save Post">
 </form>
 {% endblock %}

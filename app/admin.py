@@ -5,6 +5,7 @@ from forms import AddPostForm
 from models import Post, Tag
 import datetime
 import markdown
+import json
 
 @lm.unauthorized_handler
 def unauthorized_callback():
@@ -47,17 +48,17 @@ def edit_post(postid):
     form = AddPostForm(obj=post)
     if form.validate_on_submit():
         current_time = datetime.datetime.now()
-        post.title=form.title.data
-        post.body_markdown=form.body_markdown.data
-        post.body=markdown.markdown(form.body_markdown.data, extensions = ['codehilite'])
-        post.tagline=" ".join(form.body_markdown.data.split()[:25]) + ".."
+        post.title=form.blog_post_title.data
+        post.body_markdown=form.blog_post_markdown.data
+        post.body=markdown.markdown(form.blog_post_markdown.data, extensions = ['codehilite'])
+        post.tagline=" ".join(form.blog_post_markdown.data.split()[:25]) + ".."
         post.timestamp=current_time
         post.user_id=current_user.id
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('posts'))
 
-    return render_template('add_post.html', form=form)
+    return render_template('add_post.html', form=form, data=json.dumps(post.serialize()))
 
 @app.route('/admin/posts/delete/<postid>', methods = ['GET', 'POST'])
 @login_required

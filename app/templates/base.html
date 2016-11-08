@@ -3,12 +3,18 @@
 <head>
 <title> Rafik Rezzik </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block head_css %}
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='base.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='codehilite.css') }}">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-{% block head_js %}
 {% endblock %}
+
+{% block head_js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-3.1.1.min.js') }}"></script>
+{% endblock %}
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
