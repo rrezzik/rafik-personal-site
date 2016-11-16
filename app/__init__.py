@@ -5,7 +5,7 @@ from flask.ext.login import LoginManager
 from config import basedir
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+app.secret_key = 'SECRET' 
 app.config.from_object('config')
 db = SQLAlchemy(app)
 lm = LoginManager()
