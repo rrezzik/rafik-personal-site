@@ -58,7 +58,7 @@ def edit_post(postid):
         db.session.commit()
         return redirect(url_for('posts'))
 
-    return render_template('add_post.html', form=form, data=json.dumps(post.serialize()))
+    return render_template('add_post.html', form=form, post=json.dumps(post.serialize()))
 
 @app.route('/admin/posts/delete/<postid>', methods = ['GET', 'POST'])
 @login_required
