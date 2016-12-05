@@ -13,7 +13,7 @@
         <p style="clear: both;">
 
         <div class="post-tagline">
-            <p>{{ post.tagline }}</p>
+            {{ post.tagline|safe }}
         </div>
         <a class="post-readmore" href="/blog/{{ post.id }}"> Read </a>
         {% if not loop.last %}

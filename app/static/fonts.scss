@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Merriweather';
-  font-style: normal;
+  font-style: bold;
   font-weight: 400;
   src: local('Merriweather'), url(./fonts/Merriweather/Merriweather-Regular.ttf) format('truetype');
 }
@@ -17,4 +17,11 @@
   font-style: normal;
   font-weight: 700;
   src: local('Lato Bold'), local('Lato-Bold'), url(./fonts/Lato/Lato-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Railway';
+  font-style: bold;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(./fonts/Raleway/Raleway-SemiBold.ttf) format('truetype');
 }

@@ -1,5 +1,5 @@
-<!-- extend from base layout -->
-{% extends "base.html" %}
+{% extends "admin.html" %}
+
 
 {% block head_css %}
     {{ super() }}
@@ -17,16 +17,112 @@
 <script>
 window.onload = function() {
 
-    var simplemde = new SimpleMDE( {element: document.getElementById("blog_post_markdown") });
+        // Trigger/Open The Modal 
+        var toggleModal = function() {
+                
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            var modal = $('#myModal');
+            console.log(modal);
+            modal.css('display', "block");
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.css('display', "none");
+            }
+
+            
+            $("select").imagepicker({
+                hide_select: true
+            });
+
+            var $container = $('select');
+            // initialize
+            $container.imagesLoaded(function () {
+                $container.masonry({
+                    columnWidth: 30,
+                    itemSelector: '.thumbnail'
+                });
+            });
+        };
+
+    var simplemde = new SimpleMDE({
+    element: document.getElementById("blog_post_markdown"), 
+    toolbar: [
+        {
+            name: "bold",
+            action: SimpleMDE.toggleBold,
+            className: "fa fa-bold",
+            title: "Bold"
+        },
+        {   
+            name: "image",
+            action: toggleModal,
+            className: "fa fa-picture-o",
+            title: "Image"
+        },
+        {   
+            name: "preview",
+            action: SimpleMDE.togglePreview,
+            className: "fa fa-eye no-disable",
+            title: "Preview"
+        }
+    ]
+    });
 
     {% if post is defined %}
         var post_data = {{ post | safe }};
         simplemde.value(post_data.body_markdown);
         $('#blog_post_title').val(post_data.title);
+
+        // Toggle visible buttons
+        $('#save').show();
+
+        $('#save-as-draft').css('display', 'none');
+
+        $('#publish-post').css('display', 'none');
+
+        // Add click event for 'save' button
+        $('#save').on('click', function() {
+            $.post('/admin/posts/save', {
+                'body_markdown' : simplemde.value(),
+                'title' : $('#blog_post_title').val(),
+                'id' : post_data.id
+            })
+        });
+
     {% endif %}
 
 
-    $('#blog_post_title').val(post_data.title);
+    // Click events for buttons
+    $('#save-as-draft').on('click', function() {
+        $.post('/admin/posts/save', {
+            'body_markdown' : simplemde.value(),
+            'title' : $('#blog_post_title').val(),
+            'publish' : false
+        })
+    });
+
+    $('#publish-post').on('click', function() {
+        $.post('/admin/posts/save', 
+        {
+            'body_markdown' : simplemde.value(),
+            'title' : $('#blog_post_title').val(),
+            'publish' : true
+        },
+        function(data) {
+            console.log(data);
+            if (data.success) {
+                alert("Woo!");
+                $('#save-as-draft').css('display', 'none');
+                $('#publish-post').css('display', 'none');
+
+                $('#save').show();
+            }
+        });
+    });
+
 };
 </script>
 
@@ -42,15 +138,59 @@ window.onload = function() {
 
     <!-- Depending on the status of the post (published/unpublished) show different buttons -->
 
-    {% if post is defined and post.published %}
-    <input type="submit" id="save-post" value="Updated Post">
-    {% else %}
-    <input type="submit" id="save-as-draft" value="Save as Draft"> <input type="submit" id="publish-post" value="Publish Post">
-    {% endif %}
+    <input style="display: none;" type="button" id="save" value="Save">
+
+    <input type="button" id="save-as-draft" value="Save as Draft"> 
+    <input type="button" id="publish-post" value="Publish Post">
 
     <div style="margin-top: 20px;" id="return">
         <a  href="/admin/posts"> <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Return to Posts </a>
     </div>
+
+
+    <!-- Trigger/Open The Modal -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    <div class="model-header">
+        <h2> Select image or upload a new one </h2>
+    </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">x</span>
+            <select id="selectImage" class="image-picker">
+                <option value=""></option>
+                <option data-img-src='http://png.findicons.com/files/icons/2689/kitchen/128/4.png' value='4.jpg'>4.jpg</option>
+                <option data-img-src='http://png.findicons.com/files/icons/2142/webset/48/google.png' value='google.jpg'>google.jpg</option>
+                <option data-img-src='http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/058/06/0010580607.jpg&w=348&h=348' value='5.jpg'>5.jpg</option>
+            </select>
+    </div>
+
+    </div>
+
+    <!-- Modal -->
+   <!-- <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Modal header</h3>
+        </div>
+        <div class="modal-body">
+            <select id="selectImage" class="image-picker">
+                <option value=""></option>
+                <option data-img-src='http://png.findicons.com/files/icons/2689/kitchen/128/4.png' value='4.jpg'>4.jpg</option>
+                <option data-img-src='http://png.findicons.com/files/icons/2142/webset/48/google.png' value='google.jpg'>google.jpg</option>
+                <option data-img-src='http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/058/06/0010580607.jpg&w=348&h=348' value='5.jpg'>5.jpg</option>
+                <option data-img-src='http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/061/38/0010613865.jpg&w=348&h=348' value='6.jpg'>6.jpg</option>
+                <option data-img-src='http://media-cache-ec0.pinimg.com/originals/3c/3d/47/3c3d4740527f0c341dbf336b7b763479.jpg' value='aom.jpg'>aom.jpg</option>
+                <option data-img-src='http://media-cache-ak0.pinimg.com/736x/ea/84/02/ea8402384ac6dc1cd77dd89793902eb2.jpg' value='aom2.jpg'>aom2.jpg</option>
+                <option data-img-src='http://media-cache-ak0.pinimg.com/736x/9e/ff/56/9eff5665d5706d2f31a599f21e4791e6.jpg' value='aom3.jpg'>aom3.jpg</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div> -->
 
 </form>
 {% endblock %}

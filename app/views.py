@@ -19,7 +19,8 @@ def before_request():
 @app.route('/index')
 def index():
     user = g.user
-    return redirect(url_for('blog'))
+    posts = Post.query.order_by(Post.timestamp.desc())
+    return render_template('home.html', posts=posts)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():

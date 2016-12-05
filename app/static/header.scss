@@ -8,8 +8,32 @@ $big-name-
 */
 
 #header {
-    background-color: #454051;
+    color: rgba(255, 255, 255, 1);
+    
+    background:
+        linear-gradient(
+            rgba(150, 150, 150, .20)
+        ),
+        url(header_photo.jpg) no-repeat top right fixed; 
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     display: table-row;
+}
+
+.header-layer {
+    /*height: 600px;
+    width: 100%;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background-color: rgba(150, 150, 150, .20);
+    position: absolute;
+    top: 0;
+    left: 0;*/
+    /*width: 100%;
+    height: 100%;*/
 }
 
 #name-container {
@@ -68,11 +92,11 @@ $big-name-
 }
 
 #header-content {
-
+    height: 600px;
     margin-left: 15%;
     margin-right: 15%;
-    padding-top: 50px;
-    padding-bottom: 40px;
+    padding-top: 120px;
+    padding-bottom: 120px;
 
     hr {
         margin-top: 40px;
@@ -86,13 +110,13 @@ $big-name-
 
 
 #big-name-div {
+/*    background: url(logo_rafik.png) no-repeat top left;*/
+    text-shadow: 2px 2px rgba(150, 150, 150, .24);
+
+    font-size: 2em;
     display: inline-block;
-    color: rgba(153, 153, 153, 0.95);
 	padding: 0;
     /*border: 1px solid rgba(153, 153, 153, 0.95);*/
-    border: 1px solid #fff;
-
-
 }
 
 @media screen and (max-width:768px)
@@ -100,7 +124,7 @@ $big-name-
     
 	#header-content
 	{
-        background-color: #454051;
+        background-color: rgba(150, 150, 150, .54);
         /*background-color: #52414C;*/
         display: block;
 		margin: 0;

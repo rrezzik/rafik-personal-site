@@ -3,16 +3,21 @@
 <head>
 <title> Rafik Rezzik </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
 {% block head_css %}
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='base.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='codehilite.css') }}">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='image-picker/image-picker.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='vex/vex.css') }}">
 {% endblock %}
 
 {% block head_js %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-3.1.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='image-picker/image-picker.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='vex/vex.min.js') }}"></script>
 {% endblock %}
 
 <script>
@@ -32,17 +37,17 @@
 <div id="main-container">
 
 <div id="header">
+    <div class="header-layer"></div>
     <div id="header-wrap">
     <div id="header-content">
 	<div id="name-container">
         <div id="big-name-div">
-            <a href="/">
-            <!--<p class="name-big"> <i class="fa fa-laptop"></i> </p> -->
+            <h1> RAFIK REZZIK </h1>
+            <!--<a href="/">
             <p class="name-big name-big-reverse">r</p>
-            <p class="name-big">r</p>
+            <p class="name-big">r</p> -->
 
 
-        </a>
         </div>
 	</div>
 	

@@ -46,6 +46,7 @@ class Post(db.Model):
     tagline = db.Column(db.Text)
     body_markdown = db.Column(db.Text)
     timestamp = db.Column(db.DateTime)
+    published = db.Column(db.Boolean)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     tags=db.relationship('Tag', secondary=tags_relationship_table, backref='posts' )
 
@@ -55,6 +56,7 @@ class Post(db.Model):
             'title' : self.title,
             'body' : self.body,
             'tagline' : self.tagline,
+            'published' : self.published,
             'body_markdown' : self.body_markdown
         }
 
@@ -64,4 +66,64 @@ class Post(db.Model):
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     tag = db.Column(db.Text)
+
+
+
+# Image gallery model
+
+class PhotoCategory(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.Text, unique = True)
+    slug = db.Column(db.Text)
+
+    def serialize(self):
+        return {
+            'id' : self.id,
+            'name' : self.name,
+            'slug' : self.slug,
+        }
+
+    def __repr__(self):
+        return '<PhotoCategory %r>' % (self.name)
+
+
+class PhotoAlbum(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    category_id = db.Column(db.Integer, db.ForeignKey('photocategory.id'))
+    name = db.Column(db.Text, unique = True)
+    description = db.Column(db.Text)
+    active = db.Column(db.Boolean)
+
+    def serialize(self):
+        return {
+            'id' : self.id,
+            'name' : self.name,
+        }
+
+    def __repr__(self):
+        return '<PhotoAlbum %r>' % (self.name)
+
+
+class Photo(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.Text)
+    description = db.Column(db.Text)
+    album_id = db.Column(db.Integer, db.ForeignKey('photoalbum.id'))
+    thumbnail_path = db.Column(db.Text)
+    path = db.Column(db.Text)
+
+    def serialize(self):
+            return {
+                'id' : self.id,
+                'name' : self.name,
+                'thumbnail_path' : self.thumbnail_path,
+                'path' : self.path
+            }
+
+    def __repr__(self):
+            return '<Photo %r>' % (self.name)
+
+
+
+
 
