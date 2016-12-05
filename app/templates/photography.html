@@ -1,0 +1,14 @@
+{% extends "admin.html" %}
+
+
+{% block content %}
+<div id="buttons">
+      <input type="submit" value="Create Category"/> <input type="button" value="Create Album"/> <input type="button" value="Upload to Album"/>
+</div>
+
+<form action="/admin/upload" method="post" name="upload_image" enctype="multipart/form-data">
+      <input type="file" name="file[]" multiple="">
+      <input type="submit" value="Upload">
+</form>
+
+{% endblock %}
