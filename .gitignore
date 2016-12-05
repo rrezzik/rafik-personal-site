@@ -6,3 +6,4 @@ tmp/*
 *~
 app/static/photography/*
 .idea/*
+app/static/.sass-cache/
