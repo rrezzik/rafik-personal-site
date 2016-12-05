@@ -1,0 +1,94 @@
+<html>
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='test.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='simplegrid.css') }}">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="header-content">
+        <div id="feature-name">
+        <h1> <span> RAFIK REZZIK </span> </h1>
+        <p class="description"> Software Developer, Athlete, and Aspiring Designer </p>
+        </div>
+    </div>
+
+
+    <div class="nav-bar">
+        <div class="logo">
+            <img width="40px" height="40px" src="{{ url_for('static', filename='logo.svg') }}"/>
+        </div>
+        <div class="links">
+            <a href=""> About </a>
+            <a href=""> Blog </a>
+            <a href=""> Code </a>
+            <a href=""> Cooking </a>
+        </div>
+    </div>
+</div>
+
+<div class="body">
+        <h1> Hello / 안녕하세요,</h1>
+    <h1> I'm Rafik Rezzik</h1>
+    <div class="about-image">
+        <img src="static/me_mtl.JPG" 
+            alt="Picture of me at Montreal's Old Port" 
+            title="Picture of me at Montreal's Old Port" />
+        <div class="image-caption"> Fooling around at the Old Port of Montreal </div>
+    </div>
+
+		<p>
+			I write code, run, play soccer, and dabble in photography. I live in beautiful <a href="http://ottawa.ca"> Ottawa, Canada</a>. This site serves as both a sort of portfolio of my work and a place to store tidbits I find interesting. 
+		</p>
+
+        <p> You can follow me on <a href="http://twitter.com/rafikrezzik">Twitter</a> or <a href="https://github.com/rrezzik">Github</a>.</p>
+        <p> And here's <a href="{{ url_for('static', filename='files/rafik-resume.pdf') }}">my resume</a>. </p>
+</div>
+
+<div class="body2">
+    <h1> Blog </h1>
+    {% for post in posts %}
+    <div class="grid grid-pad">
+        <div class="col-1-3">
+            <div class="content">
+                <h3>{{ post.title }}</h3>
+            </div>
+        </div>
+
+        <div class="col-1-3">
+            <div class="content">
+                <h3>{{ post.title }}</h3>
+            </div>
+        </div>
+
+        <div class="col-1-3">
+            <div class="content">
+                <h3>{{ post.title }}</h3>
+                
+                <button> Read </button>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+<div class="footer">
+    <div id="made-by"> 
+        <p> Made with <i class="fa fa-heart" aria-hidden="true"></i> in beautiful <a href="http://ottawa.ca">Ottawa, Canada</a>. </p>
+    </div>
+</div>
+
+</body>
+
+</html>
