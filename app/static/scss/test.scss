@@ -1,0 +1,242 @@
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: -153px;
+    position: relative;
+
+}
+
+#content {
+    width: 100%;
+}
+
+#header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+.nav-bar {
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 1px solid rgba(0,0,0,1);
+
+    height: 50px;
+    width: 100%;
+}
+
+.inner-content {
+    margin: 50px;
+}
+
+.inner-content-nav {
+    margin: 0 50px;
+}
+
+#footer {
+    position: relative;
+    height: 150px;
+    width: 100%;
+}
+
+#social-media {
+    height: 100px;
+    background-color: rgba(255, 255, 255, 1);
+    /*background-color: rgba(064, 064, 064, .89);*/
+    /*background-image: url('footer-texture.png');*/
+}
+
+#social-media li {
+    height: 50px;
+    width: 50px;
+
+    display: inline;
+    list-style: none;
+}
+
+.footer {
+    border-top: 2px solid rgba(0,0,0,1);
+    text-align: center;
+    /*background-image: url('footer-texture.png');*/
+    /*background-color: #0B4F6C;*/
+    background-color: rgba(255 , 255, 255, 1);
+    /*border-top: 3px solid rgba(044, 044, 044, .89);*/
+}
+
+.clearfooter {
+    height: 153px;
+    clear: both;
+}
+
+.nav-bar .links li {
+    display: inline;
+    list-style: none;
+}
+.nav-bar .links {
+    float: right;
+    padding: 1em;
+}
+#navigation {
+    margin: 0;
+}
+.nav-bar .navigation {
+    margin: 0;
+}
+.nav-bar .links a {
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+    padding: .5em;
+    font-size: 16px;
+    color: rgba(0,0, 0, 1);  
+    text-shadow: 0 1px rgba(240, 240, 240, .4);
+
+}
+
+.active a {
+    border-bottom: 2px solid black;
+}
+
+.nav-bar .links a:hover {
+    border-bottom: 2px solid black;
+}
+
+.content {
+    padding: 5px;
+    height: 200px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 1)
+}
+
+#feature-name {
+    padding: 10% 0;
+}
+.header .description {
+    color: rgba(255, 255, 255, 1);  
+    font-family: "Raleway", sans-serif;
+    font-size: 26px;
+    text-shadow: 1px 1px rgba(040, 040, 040, .4);
+
+}
+.header h1 span {
+    color: #FFDA00;
+    /*color: rgba(203, 205, 200, 1);  */
+
+    /*background-color: rgba(235, 255, 199, .7);*/
+    /*background-color:  #DAF7A6;*/
+    font-family: "Montserrat", sans-serif;
+    font-size: 120px;
+    text-shadow: 1px 1px rgba(040, 040, 040, .3);
+}
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+
+    position: relative;
+    text-align: center;
+    /*background-color: rgba(240, 245, 234, 1);*/
+    background-color: rgba(248, 249, 249, 1);
+    height: 70%;
+    width: 100%;
+}
+
+.header-content {
+    position: relative;
+    color: rgba(044, 044, 044, .83);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 50px;
+    /*-webkit-clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);*/
+    /*height: 100%;*/
+    width: 100%;
+    background: 
+        linear-gradient(rgba(255, 244, 230, .1), rgba(255, 244, 230, .1)), 
+        url(../header_photo.jpg) no-repeat top left;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.body {
+    width: 100%;
+    padding-top: 20px;
+    /*background-color: rgba(248, 249, 249, 1);*/
+    background-color: rbg(153,153,153);
+
+    /*background-color: rgba(240, 245, 234, 1);*/
+    /*height: 500px;*/
+    /*overflow:auto;*/
+
+}
+
+.body2 {
+    width: 100%;
+    background-color: #fff;
+    height: 500px;
+
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 244, 230, .23);
+}
+
+
+
+#made-by {
+    position: absolute;
+    bottom: 0;
+    color: rgba(255, 255, 255, 1);  
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0 , 0, 0, 1);
+
+}
+
+#made-by a {
+    color: #FFDA00;
+    text-decoration: none;
+
+}
+#made-by a:visited {
+    color: #FFDA00;
+    text-decoration: none;
+}
+
+#made-by p { 
+
+}
+#made-by .fa {
+    color: rgba(255, 56, 84, 1);  
+    text-shadow: 0 1px rgba(010, 010, 010, 1);
+}
+
+
+.logo {
+    float: left;
+    margin: 5px 0;
+}
+
+
+
+@import 'typography'

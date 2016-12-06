@@ -1,0 +1,76 @@
+$header-font-stack: 'Montserrat', sans-serif;
+$body-font-stack: 'Roboto Slab', serif;
+
+
+h1, h2, h3, h4, h5 {
+    font-family: $header-font-stack;
+}
+
+/* Web typography scale from http://typecast.com/blog/a-more-modern-scale-for-web-typography */
+body {
+  font-size: 100%;
+  font-family: $body-font-stack;
+}
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+#page {
+  font-size: 1em;
+  /* equivalent to 16px */
+  line-height: 1.25;
+  /* equivalent to 20px */
+}
+
+@media (min-width: 43.75em) {
+  #page {
+    font-size: 1em;
+    /* equivalent to 16px */
+    line-height: 1.375;
+    /* equivalent to 22px */
+  }
+}
+
+h1 {
+  font-size: 2em;
+  /* 2x body copy size = 32px */
+  line-height: 1.25;
+  /* 45px / 36px */
+}
+h2 {
+  font-size: 1.625em;
+  /* 1.625x body copy size = 26px */
+  line-height: 1.15384615;
+  /* 30px / 26px */
+}
+
+h3 {
+  font-size: 1.375em;
+  /* 1.375x body copy size = 22px */
+  line-height: 1.13636364;
+  /* 25px / 22px */
+}
+
+h4 {
+  font-size: 1.125em;
+  /* 1.125x body copy size = 18px */
+  line-height: 1.11111111;
+}
+
+
+blockquote {
+  /*font-size: 1.25em;*/
+  /* 20px / 16px */
+  /*line-height: 1.25;*/
+  /* 25px / 20px */
+}
+
+@media (min-width: 43.75em) {
+  blockquote {
+    font-size: 1.5em;
+    /* 24px / 16px = */
+    line-height: 1.45833333;
+    /* 35px / 24px */
+  }
+}
