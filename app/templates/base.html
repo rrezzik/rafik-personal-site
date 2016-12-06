@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
 <title> Rafik Rezzik </title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
 {% block head_css %}
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='base.css') }}">
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='codehilite.css') }}">
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='image-picker/image-picker.css') }}">
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='vex/vex.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/test.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='simplegrid.css') }}">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
+<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 {% endblock %}
 
 {% block head_js %}
-<script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-3.1.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='image-picker/image-picker.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='vex/vex.min.js') }}"></script>
 {% endblock %}
 
 <script>
@@ -34,59 +30,60 @@
 
 
 <body>
-<div id="main-container">
 
-<div id="header">
-    <div class="header-layer"></div>
-    <div id="header-wrap">
-    <div id="header-content">
-	<div id="name-container">
-        <div id="big-name-div">
-            <h1> RAFIK REZZIK </h1>
-            <!--<a href="/">
-            <p class="name-big name-big-reverse">r</p>
-            <p class="name-big">r</p> -->
+    <div id="container">
 
-
+        <div id="header" class="nav-bar">
+            <div class="inner-content-nav">
+                <div class="logo">
+                    <a href="/"><img width="40px" height="40px" src="{{ url_for('static', filename='logo.svg') }}"/></a>
+                </div>
+                <div class="links">
+                    {% set navigation_bar = [
+                        ('/about', 'about', 'About'),
+                        ('/blog', 'blog', 'Blog'),
+                        ('/code', 'code', 'Code'),
+                        ('/cooking', 'cooking', 'Cooking')
+                    ] -%}
+                    {% set active_page = active_page|default('index') -%}
+                    <ul id="navigation">
+                    {% for href, id, caption in navigation_bar %}
+                    <li{% if id == active_page %} class="active"{% endif
+                    %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
-	</div>
-	
-    <div id="banner-links">
-        {% block topbar %}
-		<a href="/blog"> blog </a> 
-		<a href="/about"> about </a>
-		<a href="/code"> code </a>
-		<a href="/running"> running </a>
-        {% endblock %}
-	</div>
+
+        <div id="content">
+                    {% block content %}{% endblock %}
+        </div>
+
+        <div class="clearfooter"></div>
+
     </div>
 
+
+
+
+
+
+<div id="footer" class="footer">
+    
+    <div id="social-media">
+        <ul>
+            <li> <i class="fa fa-twitter large" aria-hidden="true"></i> </li>
+            <li> <i class="fa fa-twitter large" aria-hidden="true"></i> </li>
+            <li> <i class="fa fa-twitter large" aria-hidden="true"></i> </li>
+        </ul>
+    </div>
+
+    <div id="made-by"> 
+        <p> Made with <i class="fa fa-heart" aria-hidden="true"></i> in beautiful <a href="http://ottawa.ca">Ottawa, Canada</a>. </p>
+    </div>
 </div>
 
-</div>
-
-
-
- <div id=content_container>
-    <div id="content"> 
-          {% block content %}{% endblock %}
-    </div>
- </div>
-
- <div id="footer">
-     <div id="footer-wrap">
-     <div id="footer-content">
-     <div id="social-icons">
-         <a href="https://twitter.com/rafikrezzik"><i class="fa fa-twitter-square fa-2x"></i></a>
-         <a href="https://github.com/rrezzik"><i class="fa fa-github-square fa-2x"></i></a>
-         <a href="mailto:rafik.rezzik@gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>
-
-     </div>
-     </div>
-    </div>
- </div>
-
- </div>
 </body>
 
 </html>
