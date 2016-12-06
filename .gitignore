@@ -7,3 +7,6 @@ tmp/*
 app/static/photography/*
 .idea/*
 app/static/.sass-cache/
+/.vscode/
+app/static/uploads/
+app/static/css/
