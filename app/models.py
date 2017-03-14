@@ -1,5 +1,6 @@
 from app import db
 import json
+import random
 
 tags_relationship_table=db.Table('relationship_table',
 
@@ -75,6 +76,8 @@ class PhotoCategory(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.Text, unique = True)
     slug = db.Column(db.Text)
+    albums = db.relationship('PhotoAlbum', backref="photo_album", cascade="all, delete-orphan" , lazy='dynamic')
+
 
     def serialize(self):
         return {
@@ -89,16 +92,27 @@ class PhotoCategory(db.Model):
 
 class PhotoAlbum(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    category_id = db.Column(db.Integer, db.ForeignKey('photocategory.id'))
+    category_id = db.Column(db.Integer, db.ForeignKey('photo_category.id'))
     name = db.Column(db.Text, unique = True)
     description = db.Column(db.Text)
     active = db.Column(db.Boolean)
+    photos = db.relationship('Photo', backref="photo", cascade="all, delete-orphan" , lazy='dynamic')
+
+
+
+    def __init__(self, category):
+        self.category_id = category.id
+    
+    def feature_grid(self):
+        x = self.photos.all()
+        return [x[i] for i in random.sample(xrange(len(x)), 4)]
 
     def serialize(self):
         return {
             'id' : self.id,
             'name' : self.name,
         }
+
 
     def __repr__(self):
         return '<PhotoAlbum %r>' % (self.name)
@@ -108,9 +122,12 @@ class Photo(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.Text)
     description = db.Column(db.Text)
-    album_id = db.Column(db.Integer, db.ForeignKey('photoalbum.id'))
+    album_id = db.Column(db.Integer, db.ForeignKey('photo_album.id'))
     thumbnail_path = db.Column(db.Text)
     path = db.Column(db.Text)
+
+    def __init__(self, photo_album):
+        self.album_id = photo_album.id
 
     def serialize(self):
             return {
@@ -123,6 +140,18 @@ class Photo(db.Model):
     def __repr__(self):
             return '<Photo %r>' % (self.name)
 
+
+class Account(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    authenticated = db.Column(db.Boolean, default = False)
+    name = db.Column(db.Text)
+
+
+class FlickrAccount(Account):
+    key = db.Column(db.Text(convert_unicode=True))
+    secret = db.Column(db.Text(convert_unicode=True))
+    oauth_token = db.Column(db.Text(convert_unicode=True))
+    oauth_secret = db.Column(db.String)
 
 
 
