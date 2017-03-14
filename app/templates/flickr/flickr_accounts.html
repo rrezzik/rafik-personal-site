@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="inner-content">
+<ul>
+{% for account in accounts %}
+<div class="posts-list">
+<li class="post-list-item"> <h2><a href="">{{ account.name }}</a></h2> </li>
+</div>
+{% endfor %}
+</ul>
+
+<a href="accounts/add"> Add Flickr Account </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "admin.html" %}
+
+{% block content %}
+
+<a href="posts/add"> Add Post </a>
+
+<ul>
+{% for photoset in photosets %}
+<div class="posts-list">
+<li class="post-list-item"> <h2><a href="">{{ photoset.title }}</a></h2> <button><a href="/admin/flickr/albums/load/{{ photoset.id }}">Load to DB</a></button></li>
+</div>
+{% endfor %}
+</ul>
+
+{% endblock %}

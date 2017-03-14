@@ -1,0 +1,53 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<script>
+$(document).ready(function(){
+    $('#verify_button').on('click', function() {
+        $.get({
+            url: '/admin/flickr/accounts/get_verifier_url', 
+            data: {api_key: $('#api_key').val(), api_secret: $('#api_secret').val()},
+            success: function(data) {
+                alert("ouch");
+                window.open(data.url, 'newwindow', 'width=300, height=250');
+                $('#verify_button').css('display', 'none');
+                $('#oauth_token_field').show();
+                $('#oauth_verifier_field').show();
+                $('#submit-field').show();
+
+
+            }
+        });
+    });
+
+});
+</script>
+<div class="inner-content" style="margin-top: 50px;">
+
+<form method="POST">
+<ul class="frm-style1">
+    <li>
+        <label>Flickr Account Name <span class="required">*</span></label>
+        <input type="text" id="account_name" name="account_name" class="field-long" />
+    </li>
+    <li>
+        <label>Flickr Keys <span class="required">*</span></label><input type="text" id="api_key" name="api_key" class="field-divided" placeholder="API KEY" />&nbsp;<input type="text" id="api_secret" name="api_secret" class="field-divided" placeholder="API SECRET" /> 
+    </li>
+    <li id="oauth_token_field" style="display:none;">
+        <label>OAuth Token <span class="required">*</span></label>
+        <input type="text" id="oauth_token" name="oauth_token" class="field-long" />
+    </li>
+    <li id="oauth_verifier_field" style="display:none;">
+        <label>OAuth Verifier <span class="required">*</span></label>
+        <input type="text" id="oauth_verifier" name="oauth_verifier" class="field-long" />
+    </li>
+    <li> <input type="button" id="verify_button" value="Verify" /></li>
+
+    <li id="submit-field" style="display:none;"> <input type="submit" id="add_button" value="Next" /></li>
+
+
+</ul>
+</form>
+
+</div>
+{% endblock %}
