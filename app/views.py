@@ -3,9 +3,13 @@ from flask.ext.login import login_user, logout_user, current_user, login_require
 
 from app import app, db, lm
 from forms import LoginForm
-from models import User, Post
+from models import User, Post, FlickrAccount, Account, PhotoAlbum
 import glob
-from random import randrange
+import json
+
+import traceback
+
+import flickr_api
 
 @lm.user_loader
 def load_user(id):
@@ -20,7 +24,31 @@ def before_request():
 def index():
     user = g.user
     posts = Post.query.order_by(Post.timestamp.desc())
-    return render_template('home.html', posts=posts)
+    photo_urls = []
+    try:
+
+        album = PhotoAlbum.query.get(1)
+        photos = album.photos
+        for photo in photos:
+            photo_urls.append(photo.thumbnail_path)
+            #print flickr_api.Photo.getInfo(photo=photo)
+    except Exception as e:
+        traceback.print_exc()
+        print str(e)
+
+    return render_template('home.html', albums=[album], posts=posts, photo_urls=json.dumps(photo_urls))
+
+@app.route('/get_verifier')
+def verify_flickr():
+    FLICKR_PUBLIC = 'b763af2cc441fa6c6c57da66149cf357'
+    FLICKR_SECRET = 'cbd839c4166948fb'
+    flickr_api.set_keys(api_key = FLICKR_PUBLIC, api_secret = FLICKR_SECRET)
+    a = flickr_api.auth.AuthHandler(callback = "http://www.lvh.me/get_verifier")
+    flickr_api.set_auth_handler(a)
+
+    perms = "read" # set the required permissions
+    url = a.get_authorization_url(perms)
+    return redirect(url)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
