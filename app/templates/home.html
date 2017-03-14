@@ -1,20 +1,28 @@
 {% extends "base.html" %}
 
+{% block head_js %}
+    {{ super() }}
+<script>
+        $().ready(function() {
+
+
+        });
+</script>
+{% endblock %}
+
 {% block content %}
 
-<div class="header">
 
-    <div class="header-content">
+<div class="header">
+    <div class="header-content ">
         <div id="feature-name">
         <h1> <span> RAFIK REZZIK </span> </h1>
-        <p class="description"> Software Developer, Athlete, and Aspiring Designer </p>
+        <p class="description"> Software Developer. Athlete. Aspiring Designer </p>
         </div>
     </div>
-
 </div>
 
-<div class="body">
-
+<div class="body about">
     <div class="inner-content">
         <h1> Hello! I'm Rafik Rezzik</h1>
         <p>I write code, run, play soccer, and dabble in photography. I live in beautiful <a href="http://ottawa.ca"> Ottawa, Canada</a>. This site serves as both a sort of portfolio of my work and a place to store tidbits I find interesting.</p> 
@@ -25,6 +33,7 @@
     </div>
 </div>
 
+<hr/>
 <div class="body2">
     <div class="inner-content">
         <h1 class="text-center">Blog</h1>
@@ -45,17 +54,31 @@
     </div>
 </div>
 
+<hr/>
+<div id="photography">
+    <div class="">
+        <h1 class="text-center">Photos</h1>
 
-<div class="body2">
-    <div class="inner-content">
-        <h1 class="text-center">Photography</h1>
-        <div class="grid grid-pad">
+            {% for album in albums %}
+                    <h3> {{ album.name }} </h3>
+                    <span class="rig-text">{{ album.name }}</span>
 
-
-
+                    <div class="album-thumbnails">
+                    <ul id="rig" class="gallery">
+                        {% for photo in album.feature_grid() %}
+                            <li>
+                            <div class="rig-cell" href="#">
+                                <div class="rig-img" style="background-image:url('{{ photo.thumbnail_path }}');"></div>
+                                <span class="rig-overlay"></span>
+                            </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+            {% endfor %}
         </div>
-
-    </div>
 </div>
 
 {% endblock %}
+
+

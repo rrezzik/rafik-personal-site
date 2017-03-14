@@ -11,9 +11,18 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='js/photoswipe/photoswipe.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='js/photoswipe/default-skin/default-skin.css') }}">
+
+
 {% endblock %}
 
 {% block head_js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-3.1.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/photoswipe/photoswipe.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/photoswipe/photoswipe-ui-default.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/masonry.pkgd.min.js') }}"></script>
+
 {% endblock %}
 
 <script>
@@ -73,9 +82,10 @@
     
     <div id="social-media">
         <ul>
-            <li> <i class="fa fa-twitter large" aria-hidden="true"></i> </li>
-            <li> <i class="fa fa-twitter large" aria-hidden="true"></i> </li>
-            <li> <i class="fa fa-twitter large" aria-hidden="true"></i> </li>
+            <li> <a href="https://twitter.com/RafikRezzik"><i class="fa fa-twitter large" aria-hidden="true"></i></a></li>
+            <li> <i class="fa fa-instagram large" aria-hidden="true"></i> </li>
+            <li> <i class="fa fa-github-alt large" aria-hidden="true"></i> </li>
+
         </ul>
     </div>
 
