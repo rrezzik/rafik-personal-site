@@ -10,3 +10,5 @@ app/static/.sass-cache/
 /.vscode/
 app/static/uploads/
 app/static/css/
+*.log*
+*.token

@@ -9,3 +9,4 @@ markdown
 jinja2_highlight
 pygments
 Werkzeug
+flickr_api
