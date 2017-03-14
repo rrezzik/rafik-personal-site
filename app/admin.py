@@ -2,12 +2,13 @@ from app import app, db, lm
 from flask import render_template, flash, redirect, session, url_for, request, g, jsonify, send_from_directory
 from flask.ext.login import current_user, login_required, LoginManager
 from forms import AddPostForm
-from models import Photo, Post, Tag
+from models import Photo, Post, Tag, FlickrAccount
 import datetime
 import markdown
 import json
 from config import ALLOWED_EXTENSIONS
 from werkzeug import utils
+import flickr_api
 import os
 
 @lm.unauthorized_handler
@@ -19,6 +20,152 @@ def unauthorized_callback():
 def admin():
     return render_template('admin.html',
         title = 'Rafik Rezzik - Admin')
+
+# @app.route('/admin/flickr/verify_flickr')
+# @login_required
+# def verify_flickr():
+
+#     token = request.args.get('oauth_token')
+#     verifier = request.args.get('oauth_verifier')
+
+#     if verifier is not None:
+#         auth = flickr_api.auth.AUTH_HANDLER
+#         auth.set_verifier(verifier)
+#         flickr_api.set_auth_handler(auth)
+#         auth.save("flickr_token.token")
+#         redirect(url_for('/'))
+
+#     else:
+#         FLICKR_PUBLIC = 'b763af2cc441fa6c6c57da66149cf357'
+#         FLICKR_SECRET = 'cbd839c4166948fb'
+#         flickr_api.set_keys(api_key = FLICKR_PUBLIC, api_secret = FLICKR_SECRET)
+#         a = flickr_api.auth.AuthHandler(callback = "http://www.lvh.me/verify_flickr")
+#         flickr_api.set_auth_handler(a)
+
+#         perms = "read" # set the required permissions
+#         url = a.get_authorization_url(perms)
+#         return redirect(url)
+
+@app.route('/admin/flickr/accounts')
+@login_required
+def flickr_accounts():
+    accounts = FlickrAccount.query.all()
+    return render_template('flickr/flickr_accounts.html', accounts=accounts)
+
+@app.route('/admin/flickr/verify', methods=["POST", "GET"])
+@login_required
+def verify_flickr_account():
+    if request.method == 'POST':
+        print request.form
+        the_stuff = flickr_api.auth.AuthHandler.to_dict()
+        print the_stuff
+
+        account = FlickrAccount()
+        account.authenticated = True
+        account.key = the_stuff['api_key']
+        account.secret = the_stuff['api_secret']
+        account.oauth_token = the_stuff['access_token_key']
+        account.oauth_secret = the_stuff['access_token_secret']
+        redirect(url_for('flickr_accounts'))
+    if request.method == 'GET':
+        print request.form
+        the_stuff = auth_handler.todict()
+        print the_stuff
+
+        account = FlickrAccount()
+        account.authenticated = True
+        account.key = the_stuff['api_key']
+        account.secret = the_stuff['api_secret']
+        account.oauth_token = the_stuff['access_token_key']
+        account.oauth_secret = the_stuff['access_token_secret']
+        redirect(url_for('flickr_accounts'))
+
+@app.route('/admin/flickr/accounts/add', methods=["POST", "GET"])
+@login_required
+def add_flickr_account():
+    if request.method == 'POST':
+
+        print request.form
+        flickr_api.set_keys(api_key=request.form.get('api_key'), api_secret=str(request.form.get('api_secret')))
+        auth_handler = flickr_api.auth.AuthHandler(request_token_key=session['request_token_key'], request_token_secret=session['request_token_secret'])
+
+
+        auth_handler.set_verifier(request.form.get('oauth_verifier'))
+
+        the_stuff = auth_handler.todict(include_api_keys=True)
+        print the_stuff
+        account = FlickrAccount()
+        account.authenticated = True
+        account.key = the_stuff['api_key']
+        account.secret = the_stuff['api_secret']
+        account.oauth_token = the_stuff['access_token_key']
+        account.oauth_secret = the_stuff['access_token_secret']
+
+        db.session.add(account)
+        db.session.commit()
+        redirect(url_for('flickr_accounts'))
+    else:
+        return render_template('flickr/add_flickr_account.html')
+
+@app.route('/admin/flickr/accounts/get_verifier_url', methods=["GET"])
+@login_required
+def get_verifier_url():
+    if request.method == 'GET':
+        print "WWWWOOOO!"
+        key = request.args.get('api_key')
+        secret = request.args.get('api_secret')
+        flickr_api.set_keys(api_key=str(key), api_secret=str(secret))
+        a = flickr_api.auth.AuthHandler()
+        perms = "read"
+        url = a.get_authorization_url(perms)
+        print url
+        the_stuff = a.todict()
+        print the_stuff
+        session['request_token_key'] = the_stuff['request_token_key']
+        session['request_token_secret'] = the_stuff['request_token_secret']
+
+        return jsonify({'url': url})
+
+@app.route('/admin/flickr/albums/load/<id>')
+@login_required
+def flickr_load_album(id):
+    account = FlickrAccount.query.get(1)
+    print account
+    # Set the api keys
+    flickr_api.set_keys(api_key=account.key, api_secret=str(account.secret))
+    auth_handler = flickr_api.auth.AuthHandler(access_token_key=account.oauth_token, access_token_secret=str(account.oauth_secret))
+
+    # Set the authentication handler
+    flickr_api.set_auth_handler(auth_handler)
+    user = flickr_api.test.login()
+    photosets = user.getPhotosets(id=id)
+    print photosets
+    photoset = [i for i in user.getPhotosets() if i.id == id][0]
+    photos = photoset.getPhotos()
+    print photoset
+    for photo in photos:
+        print photo
+        sizes = photo.getSizes()
+        print sizes['Medium 640']['source']
+        #print flickr_api.Photo.getInfo(photo=photo)
+    redirect(url_for('flickr_accounts'))
+
+
+@app.route('/admin/flickr/accounts/<id>/albums')
+@login_required
+def flickr_albums(id):
+    account = FlickrAccount.query.get(id)
+    print account
+    # Set the api keys
+    flickr_api.set_keys(api_key=account.key, api_secret=str(account.secret))
+    auth_handler = flickr_api.auth.AuthHandler(access_token_key=account.oauth_token, access_token_secret=str(account.oauth_secret))
+
+    # Set the authentication handler
+    flickr_api.set_auth_handler(auth_handler)
+    user = flickr_api.test.login()
+    photosets = user.getPhotosets()
+    print photosets
+    return render_template('flickr/flickr_albums.html', photosets=photosets)
 
 @app.route('/admin/posts')
 @login_required
