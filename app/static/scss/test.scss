@@ -178,11 +178,10 @@ hr {
     border-bottom: 2px solid black;
 }
 
-.content {
+.blog-summary-content {
     padding: 5px;
     height: 200px;
-    border-radius: 4px;
-    border: 2px solid rgba(0, 0, 0, 1)
+    border: 1px solid rgba(0, 0, 0, 1)
 }
 
 #feature-name {
@@ -245,11 +244,30 @@ hr {
     /*overflow:auto;*/
 }
 
-.body2 {
+.blog {
     width: 100%;
     background-color: #fff;
     height: 500px;
 
+}
+
+.read-blog-post {
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-top: none;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 1);
+  padding: 5px;
+}
+
+.read-blog-post a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+}
+
+.read-blog-post a:visited {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
 }
 
 .overlay {
