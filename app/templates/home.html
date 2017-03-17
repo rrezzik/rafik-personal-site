@@ -58,12 +58,15 @@
 
 <hr/>
 <div id="photography" class="inner-content">
-    <div class="">
+    <div class="photos">
         <h1 class="text-center">Photos</h1>
 
             {% for album in albums %}
                     <h3> {{ album.name }} </h3>
-
+                    <div class="description">
+                        <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                        <p> {{ album.description }} </p>
+                    </div>
                     <div class="album-thumbnails">
                     <ul id="rig" class="gallery">
                         {% for photo in album.feature_grid() %}
