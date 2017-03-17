@@ -49,16 +49,9 @@
                 </div>
                 <div class="links">
                     {% set navigation_bar = navigation_bar|default([
-<<<<<<< HEAD
-                        ('/about', 'about', 'About'),
-                        ('/blog', 'blog', 'Blog'),
-                        ('/code', 'code', 'Code'),
-                        ('/cooking', 'cooking', 'Cooking')
-=======
                         ('/code', 'code', 'Code'),
                         ('/sports', 'sports', 'Sports'),
-                        ('/cooking', 'cooking', 'Cooking'),
->>>>>>> 4b2faadaeeec06a9b49e5238ccb210340ae0dab0
+                        ('/cooking', 'cooking', 'Cooking')
                     ]) -%}
                     {% set active_page = active_page|default('index') -%}
                     <ul id="navigation">
