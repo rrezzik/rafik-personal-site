@@ -117,7 +117,8 @@ hr {
 }
 
 #social-media a {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(123, 123, 123, 0.8);
+    border-bottom: 1px dotted;
 }
 
 #social-media a:visited {
@@ -175,6 +176,17 @@ hr {
     color: rgba(0,0, 0, 1);  
     text-shadow: 0 1px rgba(240, 240, 240, .4);
 
+}
+
+.photos p {
+    display: inline;
+    color: rgba(080, 080, 080, .9);
+    font-style: italic;
+}
+
+.photos .description {
+    margin-bottom: 3px;
+    padding-left: 2px;
 }
 
 .active a {
