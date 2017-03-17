@@ -178,6 +178,9 @@ hr {
 
 }
 
+.photos {
+    margin-bottom: 75px;
+}
 .photos p {
     display: inline;
     color: rgba(080, 080, 080, .9);
@@ -187,6 +190,16 @@ hr {
 .photos .description {
     margin-bottom: 3px;
     padding-left: 2px;
+}
+
+.photos a {
+    color: rgba(080, 080, 080, .9);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.photos a:visited {
+    color: rgba(080, 080, 080, .9);
 }
 
 .active a {
