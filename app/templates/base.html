@@ -48,11 +48,11 @@
                     <a href="/"><img width="40px" height="40px" src="{{ url_for('static', filename='logo.svg') }}"/></a>
                 </div>
                 <div class="links">
-                    {% set navigation_bar = [
+                    {% set navigation_bar = navigation_bar|default([
                         ('/code', 'code', 'Code'),
                         ('/sports', 'sports', 'Sports'),
                         ('/cooking', 'cooking', 'Cooking'),
-                    ] -%}
+                    ]) -%}
                     {% set active_page = active_page|default('index') -%}
                     <ul id="navigation">
                     {% for href, id, caption in navigation_bar %}
