@@ -74,6 +74,7 @@ hr {
 
 #header {
     width: 100%;
+    margin-bottom: 15px;
     position: fixed;
     top: 0;
     left: 0;
@@ -337,9 +338,10 @@ hr {
     /*max-width:900px;
     margin:0 auto;*/ /*center aligned*/
     padding:0;
+    margin-bottom: 15px;
     font-size:0; /* Remember to change it back to normal font size if have captions */
     list-style:none;
-    background-color:#000;
+    background-color:#F1F1F1;
 }
 #rig li {
     display: inline-block;

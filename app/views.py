@@ -26,17 +26,12 @@ def index():
     posts = Post.query.order_by(Post.timestamp.desc())
     photo_urls = []
     try:
-
-        album = PhotoAlbum.query.get(1)
-        photos = album.photos
-        for photo in photos:
-            photo_urls.append(photo.thumbnail_path)
-            #print flickr_api.Photo.getInfo(photo=photo)
+        albums = PhotoAlbum.query.order_by(PhotoAlbum.id)
     except Exception as e:
         traceback.print_exc()
         print str(e)
 
-    return render_template('home.html', albums=[album], posts=posts, photo_urls=json.dumps(photo_urls))
+    return render_template('home.html', albums=albums, posts=posts, photo_urls=json.dumps(photo_urls))
 
 @app.route('/get_verifier')
 def verify_flickr():
