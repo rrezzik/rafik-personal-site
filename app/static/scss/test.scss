@@ -103,18 +103,28 @@ hr {
 }
 
 #footer {
+    background-color: #141618;
     position: relative;
     height: 150px;
     width: 100%;
 }
 
 #social-media {
+    text-shadow: 0 1px 0 rgba(050, 050, 050, .7); 
+    color: rgba(255, 255, 255, .8);
     height: 100px;
-    background-color: rgba(255, 255, 255, 1)
     /*background-color: #1b1d1f;*/
     /*background-color: rgba(255, 255, 255, 1);*/
     /*background-color: rgba(064, 064, 064, .89);*/
     /*background-image: url('footer-texture.png');*/
+}
+
+#social-media a {
+    color: rgba(255, 255, 255, .8);
+}
+
+#social-media a:visited {
+   color: rgba(255, 255, 255, .8);
 }
 
 #social-media li {
@@ -183,6 +193,12 @@ hr {
     height: 200px;
     border: 1px solid rgba(0, 0, 0, 1)
 }
+
+/* Blog titles in the summary boxes */
+.blog-summary-content h3 {
+    text-align: center;
+}
+
 
 #feature-name {
     padding: 10% 0;
@@ -286,7 +302,7 @@ hr {
     font-family: "Montserrat", sans-serif;
     width: 100%;
     text-align: center;
-    background-color: #141618;
+    background-color: rgba(0, 0, 0, 1);
 
 }
 
