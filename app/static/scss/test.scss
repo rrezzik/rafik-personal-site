@@ -193,6 +193,7 @@ hr {
 }
 
 .photos a {
+    border-bottom: 1px dotted;
     color: rgba(080, 080, 080, .9);
     text-decoration: none;
     font-weight: bold;
@@ -201,6 +202,7 @@ hr {
 .photos a:visited {
     color: rgba(080, 080, 080, .9);
 }
+
 
 .active a {
     border-bottom: 2px solid black;
