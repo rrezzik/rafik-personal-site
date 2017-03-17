@@ -20,11 +20,6 @@ html, body {
 
 }
 
-.album-thumbnails {
-    width: 50%;
-    float: right;
-    height: 500px;
-}
 
 hr {
     border-top: dotted 1px;
@@ -96,6 +91,7 @@ hr {
 
 .inner-content {
     margin: auto 50px;
+    margin-top: 20px;
 }
 
 .inner-content-nav {

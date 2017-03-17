@@ -57,13 +57,12 @@
 </div>
 
 <hr/>
-<div id="photography">
+<div id="photography" class="inner-content">
     <div class="">
         <h1 class="text-center">Photos</h1>
 
             {% for album in albums %}
                     <h3> {{ album.name }} </h3>
-                    <span class="rig-text">{{ album.name }}</span>
 
                     <div class="album-thumbnails">
                     <ul id="rig" class="gallery">
@@ -77,6 +76,8 @@
                         {% endfor %}
                     </ul>
                     </div>
+
+                    <a style="float: right;" href=""> Album </a>
             {% endfor %}
         </div>
 </div>
