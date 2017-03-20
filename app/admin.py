@@ -21,31 +21,6 @@ def admin():
     return render_template('admin.html',
         title = 'Rafik Rezzik - Admin')
 
-# @app.route('/admin/flickr/verify_flickr')
-# @login_required
-# def verify_flickr():
-
-#     token = request.args.get('oauth_token')
-#     verifier = request.args.get('oauth_verifier')
-
-#     if verifier is not None:
-#         auth = flickr_api.auth.AUTH_HANDLER
-#         auth.set_verifier(verifier)
-#         flickr_api.set_auth_handler(auth)
-#         auth.save("flickr_token.token")
-#         redirect(url_for('/'))
-
-#     else:
-#         FLICKR_PUBLIC = 'b763af2cc441fa6c6c57da66149cf357'
-#         FLICKR_SECRET = 'cbd839c4166948fb'
-#         flickr_api.set_keys(api_key = FLICKR_PUBLIC, api_secret = FLICKR_SECRET)
-#         a = flickr_api.auth.AuthHandler(callback = "http://www.lvh.me/verify_flickr")
-#         flickr_api.set_auth_handler(a)
-
-#         perms = "read" # set the required permissions
-#         url = a.get_authorization_url(perms)
-#         return redirect(url)
-
 @app.route('/admin/flickr/accounts')
 @login_required
 def flickr_accounts():
@@ -111,7 +86,6 @@ def add_flickr_account():
 @login_required
 def get_verifier_url():
     if request.method == 'GET':
-        print "WWWWOOOO!"
         key = request.args.get('api_key')
         secret = request.args.get('api_secret')
         flickr_api.set_keys(api_key=str(key), api_secret=str(secret))
@@ -215,7 +189,6 @@ def upload_file():
             if file and allowed_file(file.filename):
                 filename = utils.secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                print "cool redirecting now"
 
         
         return redirect(url_for('photography'))
@@ -265,7 +238,6 @@ def save_post():
     print form
 
     if 'id' in form:
-        print "if"
         # Get the post
         post = Post.query.filter_by(id=form['id']).first()
 

@@ -33,17 +33,6 @@ def index():
 
     return render_template('home.html', albums=albums, posts=posts, photo_urls=json.dumps(photo_urls))
 
-@app.route('/get_verifier')
-def verify_flickr():
-    FLICKR_PUBLIC = 'b763af2cc441fa6c6c57da66149cf357'
-    FLICKR_SECRET = 'cbd839c4166948fb'
-    flickr_api.set_keys(api_key = FLICKR_PUBLIC, api_secret = FLICKR_SECRET)
-    a = flickr_api.auth.AuthHandler(callback = "http://www.lvh.me/get_verifier")
-    flickr_api.set_auth_handler(a)
-
-    perms = "read" # set the required permissions
-    url = a.get_authorization_url(perms)
-    return redirect(url)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
