@@ -65,3 +65,12 @@ def about():
 @app.route('/running')
 def running():
     return render_template('running.html')
+
+@app.route('/photography/album/<id>')
+def photo_album(id):
+    try:
+        album = PhotoAlbum.query.get(id)
+    except Exception as e:
+        traceback.print_exc()
+        print str(e)
+    return render_template('album.html', album=album)
