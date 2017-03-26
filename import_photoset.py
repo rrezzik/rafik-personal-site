@@ -39,6 +39,8 @@ def import_photoset(id):
         sizes = photo.getSizes()
         photo_db.thumbnail_path = sizes['Medium 640']['source']
         photo_db.path = sizes['Large 1600']['source']
+        photo_db.height = sizes['Large 1600']['height']
+        photo_db.width = sizes['Large 1600']['width']
         print sizes['Medium 640']['source']
         photoset_db.photos.append(photo_db)
         #db.session.add(photo_db)

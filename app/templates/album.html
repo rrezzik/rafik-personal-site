@@ -32,8 +32,8 @@ $('document').ready(function() {
             // create slide object
             item = {
                 src: linkEl.getAttribute('href'),
-                w: 600,
-                h: 400
+                w: linkEl.getAttribute('width'),
+                h: linkEl.getAttribute('height')
             };
 
 
@@ -226,7 +226,7 @@ initPhotoSwipeFromDOM('.my-gallery');
         {% for photo in album.photos %}
             <li>
             <div class="rig-cell" href="#">
-                                                    <a href="{{photo.thumbnail_path}}"> 
+                                                    <a width="{{photo.width}}" height="{{photo.height}}" href="{{photo.path}}"> 
 
                 <div class="rig-img" style="background-image:url('{{ photo.thumbnail_path }}');">
 

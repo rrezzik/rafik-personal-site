@@ -125,6 +125,8 @@ class Photo(db.Model):
     album_id = db.Column(db.Integer, db.ForeignKey('photo_album.id'))
     thumbnail_path = db.Column(db.Text)
     path = db.Column(db.Text)
+    width = db.Column(db.Integer)
+    height = db.Column(db.Integer)
 
     def __init__(self, photo_album):
         self.album_id = photo_album.id
