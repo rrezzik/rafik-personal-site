@@ -1,9 +1,20 @@
-$header-font-stack: 'Montserrat', sans-serif;
+$title-header-font-stack: 'Montserrat', sans-serif;
 $body-font-stack: 'Roboto Slab', serif;
-
+$header-font-stack: 'Lora', serif;
 
 h1, h2, h3, h4, h5 {
     font-family: $header-font-stack;
+    font-weight: normal;
+}
+
+#feature-name h1 {
+    font-family: $title-header-font-stack;
+}
+
+.category {
+    h1 {
+	font-size: 2em;
+    }
 }
 
 /* Web typography scale from http://typecast.com/blog/a-more-modern-scale-for-web-typography */

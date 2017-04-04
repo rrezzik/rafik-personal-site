@@ -25,3 +25,10 @@
   font-weight: 700;
   src: local('Lato Bold'), local('Lato-Bold'), url(./fonts/Raleway/Raleway-SemiBold.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lora Regular'), local('Lora-Regular'), url(../fonts/Lora/Lora-Regular.ttf) format('truetype');
+}
